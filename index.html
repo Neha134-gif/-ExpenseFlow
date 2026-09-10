@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ExpenseFlow</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- navbar -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a href="#dashboard" class="logo">
+                💰 ExpenseFlow
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#transactions">
+                        Transactions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#analytics">
+                        Analytics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#how-it-works">
+                        How It Works
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#add-transaction" class="get-started">
+                        Get Started
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- main -->
+
+    <main>
+
+
+        <!-- dashboard -->
+
+        <section id="dashboard" class="dashboard">
+
+            <div class="dashboard-heading">
+
+                <p class="welcome-text">
+                    Welcome back 👋
+                </p>
+
+                <h1>
+                    Manage your money smarter.
+                </h1>
+
+                <p class="subtitle">
+                    Track your income, expenses and spending habits
+                    in one simple place.
+                </p>
+
+                <a href="#add-transaction" class="hero-button">
+                    Start Tracking
+                </a>
+
+            </div>
+
+
+            <!-- summary cards -->
+
+            <div class="summary">
+
+                <div class="card">
+
+                    <h3>
+                        Total Balance
+                    </h3>
+
+                    <p id="total-balance">
+                        ₹0
+                    </p>
+
+                    <span>
+                        Your current balance
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Total Income
+                    </h3>
+
+                    <p id="total-income">
+                        ₹0
+                    </p>
+
+                    <span>
+                        Money you've received
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Total Expenses
+                    </h3>
+
+                    <p id="total-expenses">
+                        ₹0
+                    </p>
+
+                    <span>
+                        Money you've spent
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- add transaction -->
+
+        <section id="add-transaction" class="add-transaction">
+
+            <div class="section-heading">
+
+                <p class="section-tag">
+                    TRACK YOUR MONEY
+                </p>
+
+                <h2>
+                    Add New Transaction
+                </h2>
+
+                <p class="section-description">
+                    Record your income or expenses and keep
+                    your finances organized.
+                </p>
+
+            </div>
+
+
+            <form id="transaction-form">
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="e.g. Groceries"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="amount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="e.g. 500"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="type">
+                        Type
+                    </label>
+
+                    <select id="type" required>
+
+                        <option value="income">
+                            Income
+                        </option>
+
+                        <option value="expense">
+                            Expense
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category" required>
+
+                        <option value="food">
+                            Food
+                        </option>
+
+                        <option value="travel">
+                            Travel
+                        </option>
+
+                        <option value="shopping">
+                            Shopping
+                        </option>
+
+                        <option value="bills">
+                            Bills
+                        </option>
+
+                        <option value="entertainment">
+                            Entertainment
+                        </option>
+
+                        <option value="health">
+                            Health
+                        </option>
+
+                        <option value="education">
+                            Education
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Add Transaction
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- transactions -->
+
+        <section id="transactions" class="transactions">
+
+            <div class="section-heading">
+
+                <p class="section-tag">
+                    YOUR ACTIVITY
+                </p>
+
+                <h2>
+                    Recent Transactions
+                </h2>
+
+                <p class="section-description">
+                    View, search and manage your transactions.
+                </p>
+
+            </div>
+
+
+            <!-- filters -->
+
+            <div class="transaction-controls">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search transactions..."
+                >
+
+
+                <select id="category-filter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="food">
+                        Food
+                    </option>
+
+                    <option value="travel">
+                        Travel
+                    </option>
+
+                    <option value="shopping">
+                        Shopping
+                    </option>
+
+                    <option value="bills">
+                        Bills
+                    </option>
+
+                    <option value="entertainment">
+                        Entertainment
+                    </option>
+
+                    <option value="health">
+                        Health
+                    </option>
+
+                    <option value="education">
+                        Education
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select id="type-filter">
+
+                    <option value="all">
+                        All Types
+                    </option>
+
+                    <option value="income">
+                        Income
+                    </option>
+
+                    <option value="expense">
+                        Expense
+                    </option>
+
+                </select>
+
+
+                <select id="sort">
+
+                    <option value="newest">
+                        Newest
+                    </option>
+
+                    <option value="oldest">
+                        Oldest
+                    </option>
+
+                    <option value="highest">
+                        Highest Amount
+                    </option>
+
+                    <option value="lowest">
+                        Lowest Amount
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- transaction list -->
+
+            <div
+                id="transaction-list"
+                class="transaction-list"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        💸
+                    </div>
+
+                    <h3>
+                        No transactions yet
+                    </h3>
+
+                    <p>
+                        Add your first transaction to start
+                        tracking your money.
+                    </p>
+
+                    <a href="#add-transaction">
+                        Add Transaction
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- analytics -->
+
+        <section id="analytics" class="analytics">
+
+            <div
+                id="spending-list"
+                class="spending-list"
+            >
+
+                <div class="analytics-empty">
+
+                    <span>
+                        📊
+                    </span>
+
+                    <h3>
+                        Your spending insights will appear here
+                    </h3>
+
+                    <p>
+                        Add some expenses to see your
+                        category-wise spending.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- how it works -->
+
+        <section
+            id="how-it-works"
+            class="how-it-works"
+        >
+
+            <div class="section-heading center">
+
+                <p class="section-tag">
+                    SIMPLE & EASY
+                </p>
+
+                <h2>
+                    How ExpenseFlow Works
+                </h2>
+
+                <p class="section-description">
+                    Managing your money doesn't have to be complicated.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Add Transaction
+                    </h3>
+
+                    <p>
+                        Enter your income or expense,
+                        amount, category and date.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Track Everything
+                    </h3>
+
+                    <p>
+                        All your transactions stay organized
+                        in one place.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Analyze Spending
+                    </h3>
+
+                    <p>
+                        See where your money is going
+                        with category-wise insights.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Spend Smarter
+                    </h3>
+
+                    <p>
+                        Use your spending information to
+                        make better financial decisions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- final CTA -->
+
+        <section class="final-cta">
+
+            <h2>
+                Ready to take control of your money?
+            </h2>
+
+            <p>
+                Start tracking your expenses today.
+            </p>
+
+            <a
+                href="#add-transaction"
+                class="hero-button"
+            >
+                Add Your First Transaction
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- footer -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 ExpenseFlow
+        </p>
+
+        <p>
+            Built with HTML • CSS • JavaScript
+        </p>
+
+    </footer>
+
+
+    <!-- javascript -->
+
+    <script
+        type="module"
+        src="js/main.js"
+    ></script>
+
+</body>
+
+</html>
